@@ -1,5 +1,6 @@
 <script>
 	let codeWord = '';
+	import Cat from './Cat.svelte'
 </script>
 
 <h1>Welcome</h1>
@@ -17,6 +18,9 @@
 	<li>Human</li>
 	{#if codeWord.toLowerCase()  ===  'tech'}
 		<li><a href="https://github.com/AlexJukes" target="_blank" rel="noopener noreferrer">Software Engineer</a></li>
+	{/if}
+	{#if codeWord.toLowerCase()  ===  'lobbus'}
+		<Cat />
 	{/if}
 </ul>
 
