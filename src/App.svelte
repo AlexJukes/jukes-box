@@ -1,5 +1,9 @@
 <script>
 	let codeWord = '';
+	let hintToggle  = false;
+	function handleHintClick() {
+		hintToggle = !hintToggle;
+	}
 	import Cat from './Cat.svelte'
 </script>
 
@@ -19,7 +23,7 @@
 	{#if codeWord.toLowerCase()  ===  'tech'}
 		<li><a href="https://github.com/AlexJukes" target="_blank" rel="noopener noreferrer">Software Engineer</a></li>
 	{/if}
-	{#if codeWord.toLowerCase()  ===  'lobbus'}
+	{#if codeWord.toLowerCase()  ===  'cat'}
 		<Cat />
 	{/if}
 </ul>
@@ -33,3 +37,17 @@
 	Just say the word...
 	<input type="text" bind:value={codeWord}/>
 </h4>
+
+<h5>
+	Want a hint?
+</h5>
+
+<button on:click={handleHintClick}>{hintToggle  ? 'No' : 'Yes'}</button>
+
+{#if hintToggle}
+<p>Try...</p>	
+ <ul>
+	 <li><span>cat</span></li>
+	 <li><span>tech</span></li>
+ </ul>
+{/if}
