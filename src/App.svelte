@@ -24,7 +24,10 @@
 		<li><a href="https://github.com/AlexJukes" target="_blank" rel="noopener noreferrer">Software Engineer</a></li>
 	{/if}
 	{#if codeWord.toLowerCase()  ===  'cat'}
-		<Cat />
+		<Cat image={'bed'} />
+	{/if}
+	{#if codeWord.toLowerCase()  ===  'lobus'}
+		<Cat image={'lobus'} />
 	{/if}
 </ul>
 
