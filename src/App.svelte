@@ -6,6 +6,7 @@
   }
   import Cat from "./components/Cat.svelte";
   import Logo from "./components/Logo.svelte";
+  import Hint from "./components/Hint.svelte";
 </script>
 
 <div class="homepage">
@@ -13,11 +14,13 @@
     <Logo />
   </div>
 
-  <div class="homepage__main">
+  <div class="homepage__intro">
     <h1>Welcome</h1>
 
     <h2>I'm Alex</h2>
+  </div>
 
+  <div class="homepage__main">
     <h3>About</h3>
     <ul>
       <li>Human</li>
@@ -52,28 +55,20 @@
   </div>
 
   <div class="homepage__hint">
-    <h5>Want a hint?</h5>
-
-    <button on:click={handleHintClick}>{hintToggle ? "No" : "Yes"}</button>
-
-    {#if hintToggle}
-      <p>Try...</p>
-      <ul>
-        <li><span>cat</span></li>
-        <li><span>tech</span></li>
-      </ul>
-    {/if}
+    <Hint />
   </div>
 </div>
 
 <style>
   .homepage {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: minmax(0, 1fr), minmax(400px, 1fr), minmax(0, 1fr);
     grid-template-rows: auto;
+    align-items: center;
 
     grid-template-areas:
-      "header . ."
+      ". header ."
+      ". intro ."
       ". main ."
       ". code-input-text ."
       "code-input code-input code-input"
@@ -83,6 +78,12 @@
 
   .homepage__header {
     grid-area: header;
+    justify-self: center;
+  }
+
+  .homepage__intro {
+    grid-area: intro;
+    text-align: center;
   }
 
   .homepage__main {
