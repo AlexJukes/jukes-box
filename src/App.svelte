@@ -1,17 +1,17 @@
 <script>
   let codeWord = "";
-  let hintToggle = false;
-  function handleHintClick() {
-    hintToggle = !hintToggle;
+  let isDarkMode = false;
+  function activateDarkMode() {
+    isDarkMode = true;
   }
-  import Cat from "./components/Cat.svelte";
   import Logo from "./components/Logo.svelte";
   import Hint from "./components/Hint.svelte";
+  import About from "./components/About.svelte";
 </script>
 
 <div class="homepage">
   <div class="homepage__header">
-    <Logo />
+    <Logo {isDarkMode} />
   </div>
 
   <div class="homepage__intro">
@@ -21,25 +21,7 @@
   </div>
 
   <div class="homepage__main">
-    <h3>About</h3>
-    <ul>
-      <li>Human</li>
-      {#if codeWord.toLowerCase() === "tech"}
-        <li>
-          <a
-            href="https://github.com/AlexJukes"
-            target="_blank"
-            rel="noopener noreferrer">Software Engineer</a
-          >
-        </li>
-      {/if}
-      {#if codeWord.toLowerCase() === "cat"}
-        <Cat image={"bed"} />
-      {/if}
-      {#if codeWord.toLowerCase() === "lobus"}
-        <Cat image={"lobus"} />
-      {/if}
-    </ul>
+    <About {codeWord} {activateDarkMode} />
   </div>
 
   <div class="homepage__code-input-text">

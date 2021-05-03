@@ -16,6 +16,7 @@
   <ul>
     <li><span>cat</span></li>
     <li><span>tech</span></li>
+    <li><span>dark</span></li>
   </ul>
 {/if}
 
