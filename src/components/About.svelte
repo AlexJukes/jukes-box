@@ -1,12 +1,20 @@
 <script>
   export let codeWord;
-  export let activateDarkMode;
+  export let toggleDarkMode;
+  export let isDarkMode;
   import Cat from "../components/Cat.svelte";
 
-  function toggleDarkMode() {
-    window.document.body.classList.toggle("dark-mode");
-    activateDarkMode();
-    return null;
+  function handleDarkMode(isDarkMode) {
+    if (!isDarkMode) {
+      toggleDarkMode();
+    }
+    return "";
+  }
+  function handleLightMode(isDarkMode) {
+    if (isDarkMode) {
+      toggleDarkMode();
+    }
+    return "";
   }
 </script>
 
@@ -29,10 +37,10 @@
     <Cat image={"lobus"} />
   {/if}
   {#if codeWord.toLowerCase() === "dark"}
-    {toggleDarkMode() || ""}
+    {handleDarkMode(isDarkMode)}
   {/if}
   {#if codeWord.toLowerCase() === "light"}
-    {toggleDarkMode() || ""}
+    {handleLightMode(isDarkMode)}
   {/if}
 </ul>
 

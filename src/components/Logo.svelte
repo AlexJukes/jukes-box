@@ -7,7 +7,7 @@
     {#if isDarkMode}
       <img
         class="homepage-logo"
-        src="/logos/signature-logo-white.png"
+        src="/logos/signature-white.svg"
         alt="Alex Jukes' homepage"
       />
     {/if}
@@ -23,7 +23,9 @@
 
 <style>
   .homepage-logo {
-    max-width: 250px;
+    width: 250px;
+    height: 250px;
+    transition: visible 0.3s;
   }
 
   .logo-wrapper {

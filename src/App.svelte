@@ -1,8 +1,10 @@
 <script>
   let codeWord = "";
   let isDarkMode = false;
-  function activateDarkMode() {
-    isDarkMode = true;
+  function toggleDarkMode() {
+    window.document.body.classList.toggle("dark-mode");
+    isDarkMode = !isDarkMode;
+    return null;
   }
   import Logo from "./components/Logo.svelte";
   import Hint from "./components/Hint.svelte";
@@ -21,7 +23,7 @@
   </div>
 
   <div class="homepage__main">
-    <About {codeWord} {activateDarkMode} />
+    <About {codeWord} {toggleDarkMode} {isDarkMode} />
   </div>
 
   <div class="homepage__code-input-text">
