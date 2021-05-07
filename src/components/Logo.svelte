@@ -1,6 +1,13 @@
 <script>
-  export let isDarkMode;
+  import { darkMode } from '../stores';
+  let isDarkMode;
+
+  darkMode.subscribe((value) => {
+    isDarkMode = value;
+  });
 </script>
+
+
 
 <div class="logo-wrapper">
   <a href="https://alexjukes.com">

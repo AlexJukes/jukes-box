@@ -1,8 +1,14 @@
 <script>
   export let codeWord;
-  export let toggleDarkMode;
-  export let isDarkMode;
+  import { darkMode } from "../stores";
+  import { toggleDarkMode } from "../toggleDarkMode";
   import Cat from "../components/Cat.svelte";
+
+  let isDarkMode;
+
+  darkMode.subscribe((value) => {
+    isDarkMode = value;
+  });
 
   function handleDarkMode(isDarkMode) {
     if (!isDarkMode) {
