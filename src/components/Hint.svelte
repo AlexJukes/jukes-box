@@ -2,10 +2,13 @@
   let hintToggle = false;
   function handleHintClick() {
     hintToggle = !hintToggle;
+    setTimeout(() => {
+      window.scrollTo(0, document.body.scrollHeight);
+    }, 1);
   }
 </script>
 
-<h5>Want a hint?</h5>
+<h5 class="hint__title">Want a hint?</h5>
 
 <div class="hint__button">
   <button on:click={handleHintClick}>{hintToggle ? "No" : "Yes"}</button>
