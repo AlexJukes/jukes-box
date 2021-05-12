@@ -1,4 +1,4 @@
-import { darkMode } from "./stores";
+import { darkMode } from "../stores";
 
 export function toggleDarkMode() {
   window.document.body.classList.toggle("dark-mode");

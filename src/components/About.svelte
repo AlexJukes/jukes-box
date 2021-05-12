@@ -1,13 +1,22 @@
 <script>
   export let codeWord;
-  import { darkMode } from "../stores";
-  import { toggleDarkMode } from "../toggleDarkMode";
+  import { darkMode, permissions } from "../stores";
+  import { toggleDarkMode } from "../scripts/toggleDarkMode";
   import Cat from "../components/Cat.svelte";
 
   let isDarkMode;
+  let userPermissions;
+  console.log("userPermissions", userPermissions);
+  console.log("$", $permissions);
 
   darkMode.subscribe((value) => {
     isDarkMode = value;
+  });
+
+  permissions.subscribe((value) => {
+    console.log("value", value);
+
+    userPermissions = value;
   });
 
   function handleDarkMode(isDarkMode) {
@@ -27,7 +36,7 @@
 <h3>About</h3>
 <ul>
   <li>Human</li>
-  {#if codeWord.toLowerCase() === "tech"}
+  {#if $permissions.includes("tech")}
     <li>
       <a
         href="https://github.com/AlexJukes"
@@ -36,10 +45,10 @@
       >
     </li>
   {/if}
-  {#if codeWord.toLowerCase() === "cat"}
+  {#if $permissions.includes("cat")}
     <Cat image={"bed"} />
   {/if}
-  {#if codeWord.toLowerCase() === "lobus"}
+  {#if $permissions.includes("lobus")}
     <Cat image={"lobus"} />
   {/if}
   {#if codeWord.toLowerCase() === "dark"}

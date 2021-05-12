@@ -3,6 +3,7 @@
   import Logo from "./components/Logo.svelte";
   import Hint from "./components/Hint.svelte";
   import About from "./components/About.svelte";
+  import CodeWord from "./components/CodeWord.svelte";
 </script>
 
 <div class="homepage">
@@ -20,16 +21,8 @@
     <About {codeWord} />
   </div>
 
-  <div class="homepage__code-input-text">
-    <h3>Want to know more?</h3>
-
-    <label for="code-input">
-      <h4>Just type the word...</h4>
-    </label>
-  </div>
-
-  <div class="homepage__code-input">
-    <input type="text" id="code-input" bind:value={codeWord} />
+  <div class="homepage__code-word">
+    <CodeWord />
   </div>
 
   <div class="homepage__hint">
@@ -48,8 +41,7 @@
       ". header ."
       ". intro ."
       ". main ."
-      ". code-input-text ."
-      "code-input code-input code-input"
+      "code-word  code-word code-word "
       ". hint ."
       "footer footer footer";
   }
@@ -68,13 +60,8 @@
     grid-area: main;
   }
 
-  .homepage__code-input-text {
-    grid-area: code-input-text;
-  }
-
-  .homepage__code-input {
-    grid-area: code-input;
-    justify-self: center;
+  .homepage__code-word {
+    grid-area: code-word;
   }
 
   .homepage__hint {
