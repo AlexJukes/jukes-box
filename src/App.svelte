@@ -1,5 +1,6 @@
 <script>
   import Logo from "./components/Logo.svelte";
+  import Intro from "./components/Intro.svelte";
   import Hint from "./components/Hint.svelte";
   import About from "./components/About.svelte";
   import CodeWord from "./components/CodeWord.svelte";
@@ -11,9 +12,7 @@
   </div>
 
   <div class="homepage__intro">
-    <h1>Welcome</h1>
-
-    <h2>I'm Alex</h2>
+    <Intro />
   </div>
 
   <div class="homepage__main">
