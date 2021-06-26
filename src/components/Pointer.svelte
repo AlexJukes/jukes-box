@@ -1,30 +1,17 @@
 <script>
-  import Pointer from "./Pointer.svelte";
+  export let pointToId;
 </script>
 
-<h1 class="welcome-text">Welcome</h1>
-
-<h2 class="intro-text">I'm Alex</h2>
-
-<Pointer pointToId="middle" />
+<div class="pointer">
+  <div class="pointer__wrapper">
+    <a class="pointer__anchor" href={`#${pointToId}`}
+      ><span class="pointer__chevron">></span></a
+    >
+  </div>
+</div>
 
 <style>
-  .welcome-text {
-    font-size: 9em;
-    font-weight: normal;
-    animation: fadein 2s;
-  }
-
-  .intro-text {
-    font-size: 4em;
-    font-weight: normal;
-    animation: fadein 4s;
-    animation-delay: 1.5s;
-    opacity: 0;
-    animation-fill-mode: forwards;
-  }
-
-  .pointer-wrapper {
+  .pointer {
     font-size: 2em;
     animation: floating 3s ease-in-out 1.5s infinite, fadein 3s;
     animation-delay: 2.5s;
@@ -33,12 +20,15 @@
     transform: rotate(90deg);
   }
 
-  .pointer {
+  .pointer__wrapper {
     transform: rotate(90deg);
   }
 
-  .chevron-pointer {
-    transform: rotate(90deg);
+  .pointer__anchor {
+    text-decoration: none;
+  }
+
+  .pointer__chevron {
     text-decoration: none;
     color: black;
   }
