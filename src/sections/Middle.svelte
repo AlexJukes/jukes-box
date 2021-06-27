@@ -4,7 +4,7 @@
 </script>
 
 <div id="middle" class="middle">
-  <div class="middle__last">
+  <div class="middle__previous">
     <Pointer pointToId="top" direction="up" />
   </div>
   <div class="middle__code-word">
@@ -18,6 +18,7 @@
 
 <style>
   .middle {
+    position: relative;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-areas:
@@ -34,20 +35,20 @@
     display: flex;
     justify-self: center;
     align-self: center;
+    width: 50vw;
+    flex: 1;
+    flex-direction: column;
   }
 
-  .middle__last {
-    display: flex;
-    justify-self: center;
-    align-self: flex-start;
-    grid-area: last;
-    margin-top: 20px;
+  .middle__previous {
+    position: absolute;
+    left: 50.2%;
+    top: 2%;
   }
 
   .middle__next {
-    display: flex;
-    justify-self: center;
-    align-self: end;
-    grid-area: next;
+    position: absolute;
+    left: 50%;
+    top: 95%;
   }
 </style>

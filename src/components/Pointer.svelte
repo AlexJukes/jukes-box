@@ -14,18 +14,20 @@
 <style>
   .pointer {
     font-size: 2em;
-    animation: floating 3s ease-in-out 1.5s infinite, fadein 3s;
+  }
+
+  .pointer--up {
+    animation: floating-down-up 3s ease-in-out 1.5s infinite, fadein 3s;
     animation-delay: 2.5s;
     opacity: 0;
     animation-fill-mode: forwards;
   }
 
-  .pointer--up {
-    margin-top: 20px;
-  }
-
   .pointer--down {
-    margin-bottom: 20px;
+    animation: floating-up-down 3s ease-in-out 1.5s infinite, fadein 3s;
+    opacity: 0;
+    animation-fill-mode: forwards;
+    animation-delay: 2.5s;
   }
   .pointer__wrapper--down {
     transform: rotate(90deg);
@@ -44,7 +46,19 @@
     color: black;
   }
 
-  @keyframes floating {
+  @keyframes floating-up-down {
+    0% {
+      transform: translate(0, 0px);
+    }
+    50% {
+      transform: translate(0, -15px);
+    }
+    100% {
+      transform: translate(0, -0px);
+    }
+  }
+
+  @keyframes floating-down-up {
     0% {
       transform: translate(0, 0px);
     }

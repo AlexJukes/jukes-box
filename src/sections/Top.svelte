@@ -42,9 +42,8 @@
   }
 
   .top__next {
-    grid-area: next;
-    display: flex;
-    justify-self: center;
-    align-self: end;
+    position: absolute;
+    left: 50%;
+    top: 95%;
   }
 </style>

@@ -4,7 +4,7 @@
 </script>
 
 <div class="bottom" id="bottom">
-  <div class="bottom__last">
+  <div class="bottom__previous">
     <Pointer pointToId="middle" direction="up" />
   </div>
   <div class="bottom__hint">
@@ -14,6 +14,7 @@
 
 <style>
   .bottom {
+    position: relative;
     background-color: khaki;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -30,12 +31,13 @@
     align-self: flex-start;
     grid-area: hint;
     margin-top: 20px;
+    position: relative;
+    flex-direction: column;
   }
 
-  .bottom__last {
-    display: flex;
-    justify-self: center;
-    align-self: flex-start;
-    grid-area: last;
+  .bottom__previous {
+    position: absolute;
+    left: 50.2%;
+    top: 2%;
   }
 </style>
