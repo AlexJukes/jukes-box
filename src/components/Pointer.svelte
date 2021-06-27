@@ -1,9 +1,10 @@
 <script>
   export let pointToId;
+  export let direction = "down";
 </script>
 
-<div class="pointer">
-  <div class="pointer__wrapper">
+<div class={`pointer pointer--${direction}`}>
+  <div class={`pointer__wrapper--${direction}`}>
     <a class="pointer__anchor" href={`#${pointToId}`}
       ><span class="pointer__chevron">></span></a
     >
@@ -17,11 +18,21 @@
     animation-delay: 2.5s;
     opacity: 0;
     animation-fill-mode: forwards;
+  }
+
+  .pointer--up {
+    margin-top: 20px;
+  }
+
+  .pointer--down {
+    margin-bottom: 20px;
+  }
+  .pointer__wrapper--down {
     transform: rotate(90deg);
   }
 
-  .pointer__wrapper {
-    transform: rotate(90deg);
+  .pointer__wrapper--up {
+    transform: rotate(270deg);
   }
 
   .pointer__anchor {

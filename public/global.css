@@ -7,6 +7,7 @@ body {
 }
 
 body {
+  background-color: aliceblue;
   color: #333;
   margin: 0;
   box-sizing: border-box;
@@ -75,4 +76,25 @@ button:focus {
   font-family: "Stellar";
   font-weight: bold;
   src: url("fonts/Stellar-Bold.otf") format("opentype");
+}
+
+@keyframes floating {
+  0% {
+    transform: translate(0, 0px);
+  }
+  50% {
+    transform: translate(0, 15px);
+  }
+  100% {
+    transform: translate(0, -0px);
+  }
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }

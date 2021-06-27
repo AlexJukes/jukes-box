@@ -1,0 +1,50 @@
+<script>
+  import Logo from "../components/Logo.svelte";
+  import Intro from "../components/Intro.svelte";
+  import Pointer from "../components/Pointer.svelte";
+</script>
+
+<div class="top" id="top">
+  <div class="top__header">
+    <Logo />
+  </div>
+
+  <div class="top__intro">
+    <Intro />
+  </div>
+
+  <div class="top__next">
+    <Pointer pointToId="middle" />
+  </div>
+</div>
+
+<style>
+  .top {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas:
+      ". header ."
+      ". intro ."
+      ". next .";
+    width: 100vw;
+    height: 100vh;
+    background-color: aliceblue;
+  }
+
+  .top__header {
+    grid-area: header;
+    justify-self: center;
+  }
+
+  .top__intro {
+    grid-area: intro;
+    text-align: center;
+  }
+
+  .top__next {
+    grid-area: next;
+    display: flex;
+    justify-self: center;
+    align-self: end;
+  }
+</style>
