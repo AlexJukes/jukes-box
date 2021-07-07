@@ -1,4 +1,5 @@
 <script>
+  import About from "../components/About.svelte";
   import CodeWord from "../components/CodeWord.svelte";
   import Pointer from "../components/Pointer.svelte";
 </script>
@@ -28,6 +29,11 @@
     width: 100vw;
     height: 100vh;
     background-color: bisque;
+    transition: background-color 0.3s;
+  }
+
+  :global(body.dark-mode .middle) {
+    background-color: #07075a;
   }
 
   .middle__code-word {

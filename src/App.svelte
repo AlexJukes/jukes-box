@@ -1,4 +1,7 @@
 <script>
+  import { permissions } from "./stores";
+  import { enableDarkMode, enableLightMode } from "./scripts/toggleDarkMode";
+
   import Top from "./sections/Top.svelte";
   import Middle from "./sections/Middle.svelte";
   import Bottom from "./sections/Bottom.svelte";
@@ -10,6 +13,13 @@
   <Middle />
 
   <Bottom />
+
+  {#if $permissions.includes("dark")}
+    {enableDarkMode()}
+  {/if}
+  {#if $permissions.includes("light")}
+    {enableLightMode()}
+  {/if}
 </div>
 
 <style>
@@ -21,8 +31,9 @@
   :global(body) {
     transition: background-color 0.3s;
   }
+
   :global(body.dark-mode) {
-    background-color: #1d3040;
+    background-color: #000000;
     color: #bfc2c7;
   }
 </style>

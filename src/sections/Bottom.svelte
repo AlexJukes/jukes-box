@@ -23,6 +23,11 @@
       ". hint .";
     width: 100vw;
     height: 100vh;
+    transition: background-color 0.3s;
+  }
+
+  :global(body.dark-mode .bottom) {
+    background-color: darkslateblue;
   }
 
   .bottom__hint {

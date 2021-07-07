@@ -29,6 +29,11 @@
     width: 100vw;
     height: 100vh;
     background-color: aliceblue;
+    transition: background-color 0.3s;
+  }
+
+  :global(body.dark-mode .top) {
+    background-color: #000000;
   }
 
   .top__header {

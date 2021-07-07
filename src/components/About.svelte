@@ -1,6 +1,5 @@
 <script>
   import { permissions } from "../stores";
-  import { enableDarkMode, enableLightMode } from "../scripts/toggleDarkMode";
   import Cat from "../components/Cat.svelte";
 </script>
 
@@ -21,12 +20,6 @@
   {/if}
   {#if $permissions.includes("lobus")}
     <Cat image={"lobus"} />
-  {/if}
-  {#if $permissions.includes("dark")}
-    {enableDarkMode()}
-  {/if}
-  {#if $permissions.includes("light")}
-    {enableLightMode()}
   {/if}
 </ul>
 

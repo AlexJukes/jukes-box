@@ -46,6 +46,10 @@
     color: black;
   }
 
+  :global(body.dark-mode .pointer__chevron) {
+    color: #bfc2c7;
+  }
+
   @keyframes floating-up-down {
     0% {
       transform: translate(0, 0px);
