@@ -4,13 +4,13 @@
 
 <style>
   .welcome-text {
-    font-size: 14vw;
+    font-size: 10vmax;
     font-weight: normal;
     animation: fadein 2s;
   }
 
   .intro-text {
-    font-size: 5vw;
+    font-size: 4vmax;
     font-weight: normal;
     animation: fadein 4s;
     animation-delay: 1.5s;

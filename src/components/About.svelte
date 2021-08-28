@@ -3,7 +3,7 @@
   import Cat from "../components/Cat.svelte";
 </script>
 
-<h3>About</h3>
+<h3 class>About</h3>
 <ul>
   <li>Human</li>
   {#if $permissions.includes("tech")}

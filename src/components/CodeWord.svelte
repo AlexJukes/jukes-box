@@ -38,6 +38,7 @@
   .code-word__form {
     grid-area: code-input-text;
     display: flex;
+    flex-wrap: wrap;
   }
 
   .code-word__input {

@@ -8,6 +8,10 @@
   <div class="middle__previous">
     <Pointer pointToId="top" direction="up" />
   </div>
+
+  <div class="middle__about">
+    <About />
+  </div>
   <div class="middle__code-word">
     <CodeWord />
   </div>
@@ -24,6 +28,7 @@
     grid-template-columns: repeat(3, 1fr);
     grid-template-areas:
       ". last ."
+      "about about about"
       "code-word code-word code-word"
       ". next .";
     width: 100vw;
@@ -34,6 +39,16 @@
 
   :global(body.dark-mode .middle) {
     background-color: #07075a;
+  }
+
+  .middle__about {
+    grid-area: about;
+    display: flex;
+    justify-self: center;
+    align-self: center;
+    width: 50vw;
+    flex: 1;
+    flex-direction: column;
   }
 
   .middle__code-word {
