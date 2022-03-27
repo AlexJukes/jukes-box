@@ -1,17 +1,26 @@
 <script>
-  import { enablePermissionsFor } from "../scripts/enablePermissionsFor";
-
-  const ENTER_KEY = 13;
+  import {
+    enablePermissionsFor,
+    checkIsValidCodeword,
+  } from "../scripts/enablePermissionsFor";
 
   let codeWord = "";
+  let isInvalidCodeword = false;
 
   function handleSubmit() {
-    enablePermissionsFor(codeWord);
-    codeWord = "";
+    if (checkIsValidCodeword(codeWord)) {
+      enablePermissionsFor(codeWord);
+      codeWord = "";
+      isInvalidCodeword = false;
+      return;
+    } else {
+      isInvalidCodeword = true;
+      return;
+    }
   }
 
-  function onKeyPress(event) {
-    if (event.charCode === ENTER_KEY) handleSubmit();
+  function onKeyPress() {
+    isInvalidCodeword = false;
   }
 </script>
 
@@ -22,16 +31,20 @@
     <h4>Just type the word...</h4>
   </label>
 
-  <form class="code-word__form" on:submit|preventDefault={handleSubmit}>
-    <input
-      type="text"
-      id="code-word-input"
-      bind:value={codeWord}
-      on:keypress={onKeyPress}
-      class="code-word__input"
-    />
-    <button class="code-word__button" type="submit"> Have a go! </button>
-  </form>
+  <div class={`code-word__form-wrapper`} class:invalid={isInvalidCodeword}>
+    <form class="code-word__form" on:submit|preventDefault={handleSubmit}>
+      <input
+        type="text"
+        id="code-word-input"
+        bind:value={codeWord}
+        on:keypress={onKeyPress}
+        class="code-word__input"
+      />
+      <button class="code-word__button" type="submit">
+        {`${isInvalidCodeword ? "Try again!" : "Have a go!"}`}
+      </button>
+    </form>
+  </div>
 </div>
 
 <style>
@@ -43,6 +56,41 @@
 
   .code-word__input {
     flex: 2;
+  }
+
+  .code-word__input {
+    flex: 2;
+  }
+
+  @keyframes shake {
+    8%,
+    41% {
+      -webkit-transform: translateX(-10px);
+    }
+    25%,
+    58% {
+      -webkit-transform: translateX(10px);
+    }
+    75% {
+      -webkit-transform: translateX(-5px);
+    }
+    92% {
+      -webkit-transform: translateX(5px);
+    }
+    0%,
+    100% {
+      -webkit-transform: translateX(0);
+    }
+  }
+
+  :global(body.dark-mode .invalid) {
+    border-color: darkred;
+    border-style: solid;
+  }
+  .invalid {
+    border-color: red;
+    border-style: solid;
+    animation: shake 0.5s;
   }
 
   .code-word__button {
