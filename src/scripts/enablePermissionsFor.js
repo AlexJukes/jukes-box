@@ -21,7 +21,7 @@ function updateDarkModePermissions(existing) {
   return [...existing, DARK];
 }
 
-const codeWords = {
+const codeWordsPermissionsMap = {
   [TECH]: () => permissions.update((existing) => [...existing, TECH]),
   [CAT]: () => permissions.update((existing) => [...existing, CAT]),
   [LOBUS]: () => permissions.update((existing) => [...existing, LOBUS]),
@@ -30,8 +30,11 @@ const codeWords = {
   [RESET]: () => permissions.update(() => []),
 };
 
+export const checkIsValidCodeword = (codeWord) =>
+  Object.keys(codeWordsPermissionsMap).includes(codeWord);
+
 export const enablePermissionsFor = (codeWord) => {
-  if (Object.keys(codeWords).includes(codeWord)) {
-    return codeWords[codeWord]();
+  if (checkIsValidCodeword(codeWord)) {
+    return codeWordsPermissionsMap[codeWord]();
   }
 };
